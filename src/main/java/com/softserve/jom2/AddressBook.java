@@ -34,11 +34,15 @@ public class AddressBook implements Iterable {
         return null;
     }
 
-    public List<String> readAll() {
-        List<String> records = new ArrayList<>();
-        AddressBookIterator iterator = new AddressBookIterator();
-        while (iterator.hasNext()) {
-            records.add(iterator.next());
+    public List<String[]> readAll() {
+        List<String[]> records = new ArrayList<>();
+        String[] data;
+        for (int i = 0; i < counter; i++) {
+            data = new String[3];
+            data[0] = addressBook[i].person.firstName;
+            data[1] = addressBook[i].person.lastName;
+            data[2] = addressBook[i].address;
+            records.add(data);
         }
         return records;
     }

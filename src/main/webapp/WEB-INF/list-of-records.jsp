@@ -21,29 +21,29 @@
         <th colspan="3">Operation</th>
     </tr>
 
-<%--    <%--%>
-<%--        List<Address> addresses = (List<Address>) request.getAttribute("addresses");--%>
-<%--        for (int i = 0; i < addresses.size(); i++) {--%>
-<%--    %>--%>
-<%--    <tr>--%>
-<%--        <td><%=i+1%></td>--%>
-<%--        <td><%=addresses.get(i).getFirstName()%></td>--%>
-<%--        <td><%=addresses.get(i).getLastName()%></td>--%>
-<%--        <td><%=addresses.get(i).getAddress()%></td>--%>
-<%--        <td>--%>
-<%--            <a href="/records/read?firstName=<%=addresses.get(i).getFirstName()%>&lastName=<%=addresses.get(i).getLastName()%>">Read</a>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--            <a href="/records/update?firstName=<%=addresses.get(i).getFirstName()%>&lastName=<%=addresses.get(i).getLastName()%>">Update</a>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--            <a href="/records/delete?firstName=<%=addresses.get(i).getFirstName()%>&lastName=<%=addresses.get(i).getLastName()%>">Delete</a>--%>
-<%--        </td>--%>
+    <%
+        List<String[]> addresses = (List<String[]>) request.getAttribute("addresses");
+        for (int i = 0; i < addresses.size(); i++) {
+    %>
+    <tr>
+        <td><%=i+1%></td>
+        <td><%=addresses.get(i)[0]%></td>
+        <td><%=addresses.get(i)[1]%></td>
+        <td><%=addresses.get(i)[2]%></td>
+        <td>
+            <a href="/records/read?firstName=<%=addresses.get(i)[0]%>&lastName=<%=addresses.get(i)[1]%>">Read</a>
+        </td>
+        <td>
+            <a href="/records/update?firstName=<%=addresses.get(i)[0]%>&lastName=<%=addresses.get(i)[1]%>">Update</a>
+        </td>
+        <td>
+            <a href="/records/delete?firstName=<%=addresses.get(i)[0]%>&lastName=<%=addresses.get(i)[1]%>">Delete</a>
+        </td>
 
-<%--    </tr>--%>
-<%--    <%--%>
-<%--        }--%>
-<%--    %>--%>
+    </tr>
+    <%
+        }
+    %>
 </table>
 </body>
 </html>
