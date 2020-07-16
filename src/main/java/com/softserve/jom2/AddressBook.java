@@ -1,8 +1,6 @@
 package com.softserve.jom2;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 public class AddressBook implements Iterable {
     private NameAddressPair[] addressBook;
@@ -34,6 +32,15 @@ public class AddressBook implements Iterable {
             }
         }
         return null;
+    }
+
+    public List<String> readAll() {
+        List<String> records = new ArrayList<>();
+        AddressBookIterator iterator = new AddressBookIterator();
+        while (iterator.hasNext()) {
+            records.add(iterator.next());
+        }
+        return records;
     }
 
     public boolean update(String firstName, String lastName, String address) {

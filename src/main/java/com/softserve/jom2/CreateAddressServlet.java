@@ -9,11 +9,32 @@ import java.io.IOException;
 
 @WebServlet("/records/create")
 public class CreateAddressServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    private AddressBook addressBook;
+    private String message = "";
+
+    @Override
+    public void init() throws ServletException {
+        addressBook = AddressBook.getInstance();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String address = request.getParameter("address");
+
+        if (addressBook.create(firstName, lastName, address)) {
+            response.sendRedirect("/records/list");
+        } else {
+            message = "An error occurred! Please try again!";
+            request.setAttribute("message", message);
+            message = "";
+            request.getRequestDispatcher("/WEB-INF/create-record.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setAttribute("message", message);
+        request.getRequestDispatcher("/WEB-INF/create-record.jsp").forward(request, response);
     }
 }
