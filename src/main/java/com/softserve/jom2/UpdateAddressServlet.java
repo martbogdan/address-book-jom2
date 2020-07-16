@@ -32,7 +32,7 @@ public class UpdateAddressServlet extends HttpServlet {
         lastName = request.getParameter("lastName");
         String address = addressBook.read(firstName, lastName);
         if (address == null) {
-            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + request.getParameter("lastName") + "' not found in Address Book!");
+            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + " " + request.getParameter("lastName") + "' not found in Address Book!");
         } else {
             request.setAttribute("address", address);
             request.getRequestDispatcher("/WEB-INF/update-record.jsp").forward(request, response);

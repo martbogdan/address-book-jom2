@@ -20,7 +20,7 @@ public class ReadAddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = addressBook.read(request.getParameter("firstName"), request.getParameter("lastName"));
         if (address == null) {
-            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + request.getParameter("lastName") + "' not found in Address Book!");
+            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + " " + request.getParameter("lastName") + "' not found in Address Book!");
         } else {
             request.setAttribute("address", address);
             request.getRequestDispatcher("/WEB-INF/read-record.jsp").forward(request, response);
