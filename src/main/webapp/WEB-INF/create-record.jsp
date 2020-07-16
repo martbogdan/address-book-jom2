@@ -4,12 +4,14 @@
     <title>Create new Record in Address Book</title>
 </head>
 <body>
-<%@include file="header.html"%>
+<%@include file="header.html" %>
 <br><br>
-    <%
-        String message = (String) request.getAttribute("message");
-    %>
-    <div><%=message%></div>
+<%
+    String message = (String) request.getAttribute("message");
+%>
+<div style="color: red">
+    <%=message%>
+</div>
 
 
 <form action="/records/create" method="post">

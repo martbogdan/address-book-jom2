@@ -12,6 +12,7 @@
 <br><br>
 <span>Sort by: </span>
 <a href="/records/list?sortType=ASC">ascending</a>
+<span> | </span>
 <a href="/records/list?sortType=DESC">descending</a>
 <br><br>
 <table border="1">

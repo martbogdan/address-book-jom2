@@ -4,9 +4,9 @@
     <title>Home</title>
 </head>
 <body>
-    <%@include file="header.html"%>
+    <%@include file="header.html" %>
     <br><br>
-    <h3>Welcome</h3>
+    <h2>Welcome to awesome Address Book!</h2>
 
 </body>
 </html>

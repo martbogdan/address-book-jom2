@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/records/read")
+@WebServlet(value = "/records/read")
 public class ReadAddressServlet extends HttpServlet {
 
     private AddressBook addressBook;
@@ -20,7 +20,7 @@ public class ReadAddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = addressBook.read(request.getParameter("firstName"), request.getParameter("lastName"));
         if (address == null) {
-            response.sendError(404);
+            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + request.getParameter("lastName") + "' not found in Address Book!");
         } else {
             request.setAttribute("address", address);
             request.getRequestDispatcher("/WEB-INF/read-record.jsp").forward(request, response);

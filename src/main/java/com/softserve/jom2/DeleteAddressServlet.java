@@ -19,7 +19,7 @@ public class DeleteAddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean status = addressBook.delete(request.getParameter("firstName"), request.getParameter("lastName"));
         if (!status) {
-            response.sendError(404);
+            throw new RuntimeException("Person with name '" + request.getParameter("firstName") + request.getParameter("lastName") + "' not found in Address Book!");
         } else {
             response.sendRedirect("/records/list");
         }

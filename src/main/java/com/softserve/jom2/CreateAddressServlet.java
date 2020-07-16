@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @WebServlet("/records/create")
 public class CreateAddressServlet extends HttpServlet {
-
+    private static final String ERROR_MESSAGE = "An error occurred or person '%s %s' already exists! Please try again!";
     private AddressBook addressBook;
     private String message = "";
 
@@ -26,7 +26,7 @@ public class CreateAddressServlet extends HttpServlet {
         if (addressBook.create(firstName, lastName, address)) {
             response.sendRedirect("/records/list");
         } else {
-            message = "An error occurred! Please try again!";
+            message = String.format(ERROR_MESSAGE, firstName, lastName);
             request.setAttribute("message", message);
             message = "";
             request.getRequestDispatcher("/WEB-INF/create-record.jsp").forward(request, response);
