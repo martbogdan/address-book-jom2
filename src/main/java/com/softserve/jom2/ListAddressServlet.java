@@ -19,8 +19,19 @@ public class ListAddressServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/list-of-records.jsp");
+        String sortType = request.getParameter("sortType");
+        if (sortType != null) {
+            switch (sortType) {
+                case "ASC" :
+                    addressBook.sortedBy(SortOrder.ASC);
+                    break;
+                case "DESC" :
+                    addressBook.sortedBy(SortOrder.DESC);
+                    break;
+                default : break;
+            }
+        }
         request.setAttribute("addresses", addressBook);
-        requestDispatcher.forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/list-of-records.jsp").forward(request, response);
     }
 }

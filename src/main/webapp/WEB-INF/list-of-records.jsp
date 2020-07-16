@@ -4,15 +4,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Address list</title>
+    <title>List of Records</title>
 </head>
 <body>
 
 <%@include file="header.html"%>
 <br><br>
 <span>Sort by: </span>
-<a href="/records/sort?sortType=ASC">ascending</a>
-<a href="/records/sort?sortType=DESC">descending</a>
+<a href="/records/list?sortType=ASC">ascending</a>
+<a href="/records/list?sortType=DESC">descending</a>
 <br><br>
 <table border="1">
     <tr>

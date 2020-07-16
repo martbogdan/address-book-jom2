@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>New address</title>
+    <title>Create new Record in Address Book</title>
 </head>
 <body>
 <%@include file="header.html"%>
