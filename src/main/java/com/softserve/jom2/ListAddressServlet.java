@@ -20,7 +20,7 @@ public class ListAddressServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/list-of-records.jsp");
-        request.setAttribute("addresses", addressBook.readAll());
+        request.setAttribute("addresses", addressBook);
         requestDispatcher.forward(request, response);
     }
 }

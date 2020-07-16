@@ -34,19 +34,6 @@ public class AddressBook implements Iterable {
         return null;
     }
 
-    public List<String[]> readAll() {
-        List<String[]> records = new ArrayList<>();
-        String[] data;
-        for (int i = 0; i < counter; i++) {
-            data = new String[3];
-            data[0] = addressBook[i].person.firstName;
-            data[1] = addressBook[i].person.lastName;
-            data[2] = addressBook[i].address;
-            records.add(data);
-        }
-        return records;
-    }
-
     public boolean update(String firstName, String lastName, String address) {
         NameAddressPair.Person person = new NameAddressPair.Person(firstName, lastName);
         for (int i = 0; i < counter; i++) {
