@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/records/list")
+@WebServlet(value = "/records/list")
 public class ListAddressServlet extends HttpServlet {
 
     private AddressBook addressBook;
