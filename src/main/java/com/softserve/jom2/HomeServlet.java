@@ -11,6 +11,12 @@ import java.io.IOException;
 public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+        String requestUri = request.getRequestURI();
+        if ("/".equals(requestUri) || "/home".equals(requestUri) ) {
+            request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+        } else {
+            throw new RuntimeException("Url '" + requestUri + "' not found!");
+        }
+
     }
 }

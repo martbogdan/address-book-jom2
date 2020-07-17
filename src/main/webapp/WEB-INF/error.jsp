@@ -20,11 +20,12 @@
     <h3>url: <%=requestUri%></h3>
 <%
     } else {
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 %>
-    <h2><%=exception.getMessage()%></h2>
+    <h1 style="font-weight: bold; color: red"><%=response.getStatus()%></h1>
+    <h2 style="color: red"><%=exception.getMessage()%></h2>
     <h3>url: <%=requestUri%></h3>
 <%
-    response.setStatus(HttpServletResponse.SC_NOT_FOUND);
     }
 %>
 </body>
